@@ -35,12 +35,20 @@ class DodajNarudzbu(CreateView):
     model = Narudzba
     fields = "__all__"
 
+     def form_valid(self, form):
+            '''
+            Spremamo pk od narudzbe da poslje mozemo porsljediti na createView stavke na tu narudzbu
+            '''
+            item = form.save()
+            self.pk = item.pk
+
+            return super(DodajNarudzbu, self).form_valid(form)
+
     def get_success_url(self):
         '''
-        Prosljeđujemo na CreateView stavke
+        Prosljeđujemo na CreateView stavke, s pk koji smo spremili u form_valid
         '''
-        stavka = Stavka.objects.get(pk=self.kwargs["pk"])
-        return reverse("stavka", kwargs={"pk": stavka.narudzba.broj_narudzbe})
+        return reverse("stavka", kwargs={"pk": self.pk})
 
     def get_initial(self):
         '''
