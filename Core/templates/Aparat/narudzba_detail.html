@@ -1,0 +1,58 @@
+{% extends "_base.html" %} 
+{% load crispy_forms_tags %} 
+{% block title %}Narudžba{% endblock %} 
+{% block cute_image %}/media/cashier.png{% endblock %}
+{% block content %}
+<div class="container" align="center">
+    <div id="detail_container" class="container" >
+        <h1>VAŠA NARUDŽBA:</h1>
+        <p><strong>Ime i prezime:</strong> {{ object.ime_i_prezime }}</p>
+        <p><strong>Broj narudžbe:</strong> {{ object.broj_narudzbe }}</p>
+        <p><strong>Vrijeme kupnje:</strong> {{ object.vrijeme_kupnje }}</p>
+        <p><strong>Vrijeme isporuke:</strong> {{ object.vrijeme_isporuke }}</p>
+        <p><strong>Adresa dostave:</strong> {{ object.adresa }}, {{ object.grad }} </p>
+    </div>
+
+    <ul id="sve_stavke" class="container d-flex justify-content-center mt-4">
+        {% for stavka in object.stavke.all %}
+        <li style="display:inline">
+            <div id="order_card" class="card  m-1 col-md-4 col-centered" style="
+                                                        background-image: url('{{ static }}{{ stavka.napitak.slika.url }}');
+                                                        background-size: cover;
+                                                        background-repeat: no-repeat;
+                                                        background-position: center center;">
+                <p class="m-2"><strong>{{ stavka }}</strong> Kolicina: {{ stavka.kolicina }} </p>
+                <div id="dodaci_div">
+                    {% for dodatak in stavka.dodatak.all %}
+                    <p>{{ dodatak.naziv }}</p>
+                    {% endfor %}
+                </div>
+                <p class="m-2"><strong>Cijena:</strong> {{ stavka.cijena }} Kn</p>
+
+                <div id="buttons" class="container d-flex justify-content-center">
+
+                    <a class="btn btn-primary m-2" href="{% url 'stavka-uredi' pk=stavka.pk %}" role="button"><i
+                            class="fa-solid fa-pencil"></i></a>
+                    <a class="btn btn-danger m-2" href="{% url 'stavka-izbrisi' pk=stavka.pk %}" role="button"><i
+                            class="fa-solid fa-trash"></i></a>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+        <li style="display:inline">
+            <a href="{% url 'stavka' pk=object.broj_narudzbe %}" style="text-decoration: none;">
+                <div id="order_card" class="card m-1 col-md-4 col-centered rounded-circle me-2">
+                    <i id="add_stavka" class="fa-solid fa-plus fa-10x mt-3"></i>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div id="detail_container" class="container" >
+
+        <h4>Cijena: {{ object.ukupna_cijena }} Kn</h4>
+        <a class="btn btn-success" href="/info-page" role="button">Potvrdi</a>
+    </div>
+</div>
+
+
+{% endblock %}

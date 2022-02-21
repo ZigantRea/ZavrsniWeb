@@ -1,0 +1,29 @@
+{% extends "_base.html" %} 
+{% load crispy_forms_tags %} 
+{% block title %}Dodaj - stavku{% endblock %} 
+{% block cute_image %}/media/cutecoffie.png{% endblock %} {% block content %}
+<div id="center_div">
+    <div class="row mb-5">
+        <div class="col-sm m-4">
+
+            <form method="post">
+                {% csrf_token %} {{ form | crispy }}
+                <input class="btn btn-primary mt-2" type="submit" value="Dodaj stavku">
+            </form>
+
+        </div>
+
+        <div class="col-sm m-4">
+            <h3>VAŠA NARUDŽBA:</h3>
+            {% for stavka in narudzba.stavke.all %}
+            <p>{{ stavka }}</p>
+            {% endfor%}
+        </div>
+    </div>
+    <div class="row mb-5">
+        <a class="btn btn-success" href="{% url 'potvrda' pk=narudzba.broj_narudzbe %}" role="button">Provjeri narudžbu</a>
+    </div>
+</div>
+
+
+{% endblock %}

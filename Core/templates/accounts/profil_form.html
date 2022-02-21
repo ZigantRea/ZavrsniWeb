@@ -1,0 +1,17 @@
+{% extends "_base.html" %} 
+{% load crispy_forms_tags %} 
+{% block title %}Profil{% endblock %} 
+{% block cute_image %}/media/cute_dog.png{% endblock %}
+
+{% block content %}
+<div class="container" align="center">
+    <div id="detail_container" class="container" >
+        <form method="post">
+            {% csrf_token %} 
+            {{ form | crispy }}
+            <input class="btn btn-success mt-2" type="submit" value="Uredi">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

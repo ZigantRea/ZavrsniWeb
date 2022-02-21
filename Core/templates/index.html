@@ -1,0 +1,63 @@
+{% extends "_base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block cute_image %}/media/coffee.png{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row mb-5">
+            <div class="col" align="center">
+                <a class="btn btn-success" href="narudzba" role="button">
+                    <h1>NARUČI:</h1>
+                    <img src="/media/logo.jpg" alt="" width="250" height="200" class="rounded-circle me-2">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h1>PIĆA:</h1>
+                <hr>
+                    <div class="container">
+                        
+                        {% for napitak in napitci %}
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <img src="{{ static }}{{ napitak.slika.url }}" alt="" width="32" height="32" class="rounded-circle me-2">
+                            </div>
+                            <div class="col">
+                                <h4>{{ napitak }}</h4>
+                            </div>
+                            <div class="col-md-auto">
+                                <h4>{{ napitak.cijena }} Kn</h4>
+                            </div>
+                        </div>
+                            {% endfor %}
+                    </div>
+
+
+            </div>
+            <div class="col-sm">
+                <h1>DODACI:</h1>
+                <hr>
+                <div class="container">
+                        
+                    {% for dodatak in dodatci %}
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <img src="{{ static }}{{ dodatak.slika.url }}" alt="" width="32" height="32" class="rounded-circle me-2">
+                        </div>
+                        <div class="col-sm">
+
+                            <h4>{{ dodatak }}</h4>
+                        </div>
+                        <div class="col-md-auto">
+                            <h4>{{ dodatak.cijena }} Kn</h4>
+                        </div>
+                    </div>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

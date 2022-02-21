@@ -1,0 +1,100 @@
+body {
+    background-image: url('/media/backbround_striga.jpg');
+    background-size: cover;
+}
+
+#main_div {
+    min-height: 92%;
+    min-width: 98%;
+    left: 20px;
+    top: 70px;
+    background-color: rgba(223, 239, 240, 0.8);
+    position: absolute;
+    justify-content: center;
+    z-index: -100;
+    /* background-image: '/media/backbround_striga.jpg'; */
+}
+
+.navbar {
+    float: none;
+    vertical-align: top;
+    text-align: center;
+    display: flex;
+}
+
+#title_nav_bar {
+    margin: auto;
+}
+
+#center_div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 10px;
+}
+
+#sve_stavke {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+}
+
+#sve_stavke li {
+    align-content: center;
+    text-align: center;
+}
+
+#order_card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+#buttons {
+    bottom: 1px;
+}
+
+#dodaci_div {
+    overflow: auto;
+    height: 150px;
+}
+
+#white_image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.fa-plus {
+    color: green;
+}
+
+#detail_container {
+    width: 500px;
+    text-align: left;
+}
+
+p {
+    margin: 2px;
+    padding: 0;
+}
+
+#admin_login {
+    text-decoration: none;
+    color: rgb(119, 126, 119);
+    margin-right: 20px;
+}
+
+#cute_image {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: -5;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

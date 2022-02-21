@@ -1,0 +1,16 @@
+{% extends "_base.html" %} 
+{% load crispy_forms_tags %} 
+{% block title %}Napitak{% endblock %} 
+
+{% block content %}
+<div class="container" align="center">
+    <div id="detail_container" class="container" >
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+            {{ form | crispy }}
+            <input class="btn btn-success mt-2" type="submit" value="Dodaj">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

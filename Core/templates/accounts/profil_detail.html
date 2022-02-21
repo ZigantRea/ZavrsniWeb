@@ -1,0 +1,26 @@
+{% extends "_base.html" %} 
+{% block title %}Profil{% endblock %} 
+{% block cute_image %}/media/cute_dog.png{% endblock %}
+
+{% block content %}
+<div class="container" align="center">
+    <div id="detail_container" class="container" >
+        <h2>VAŠ PROFIL:</h2>
+        <p><strong>Ime i prezime:</strong> {{ object.ime_i_prezime }}</p>
+        <p><strong>Broj narudžbe:</strong> {{ object.adresa }}</p>
+        <p><strong>Vrijeme kupnje:</strong> {{ object.grad }}</p>
+        <p><strong>Vrijeme isporuke:</strong> {{ object.datum_rođenja }}</p>
+        <a class="btn btn-success mt-4" href="{% url 'profil-edit' pk=user.pk %}" role="button">Uredi</a>
+        <a class="btn btn-primary mt-4" href="/" role="button">Naslovna</a>
+        
+    </div>
+    {% if user.is_superuser %}
+    <div id="detail_container" align="center">
+        <a class="btn btn-primary mt-4" href="/dodaj-napitak" role="button">Dodaj napitak</a>
+        <a class="btn btn-primary mt-4" href="/dodaj-dodatak" role="button">Dodaj dodatak</a>
+        <a class="btn btn-primary mt-4" href="/dodaj-salicu" role="button">Dodaj šalicu</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

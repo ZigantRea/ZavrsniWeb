@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Izbriši - stavku{% endblock %}
+{% block cute_image %}/media/spill.png{% endblock %}
+
+{% block content %}
+<div id="center_div" >
+
+    <form method="post">{% csrf_token %}
+        <p>Jesti li sigurni da želite izbrisati "{{ object }}"?</p>
+        {{ form }}
+        <input class="btn btn-warning" type="submit" value="Da">
+
+    </form>
+</div>
+{% endblock %}
