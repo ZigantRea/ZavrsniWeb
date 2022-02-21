@@ -98,3 +98,13 @@ a {
     text-decoration: none;
     color: black;
 }
+
+#cijenik_img {
+    transition: transform 0.25s ease;
+}
+
+#cijenik_img:hover {
+    -webkit-transform: scale(10.5);
+    /* or some other value */
+    transform: scale(10.5);
+}
