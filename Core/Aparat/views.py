@@ -35,14 +35,14 @@ class DodajNarudzbu(CreateView):
     model = Narudzba
     fields = "__all__"
 
-     def form_valid(self, form):
-            '''
-            Spremamo pk od narudzbe da poslje mozemo porsljediti na createView stavke na tu narudzbu
-            '''
-            item = form.save()
-            self.pk = item.pk
+    def form_valid(self, form):
+        '''
+        Spremamo pk od narudzbe da poslje mozemo porsljediti na createView stavke na tu narudzbu
+        '''
+        item = form.save()
+        self.pk = item.pk
 
-            return super(DodajNarudzbu, self).form_valid(form)
+        return super(DodajNarudzbu, self).form_valid(form)
 
     def get_success_url(self):
         '''
