@@ -3,7 +3,7 @@ from Aparat import views
 
 urlpatterns = [
     path("", views.Index.as_view(), name="home"),
-    path("narudzba", views.DodajNarudzbu.as_view()),
+    path("narudzba", views.DodajNarudzbu.as_view(), name="dodaj-narudzbu"),
     path("stavka/<pk>", views.DodajStavku.as_view(), name="stavka"),
     path("potvrda/<pk>", views.PotvradaNarudzbe.as_view(), name="potvrda"),
     path("stavka-uredi/<pk>", views.UrediStavku.as_view(), name="stavka-uredi"),
