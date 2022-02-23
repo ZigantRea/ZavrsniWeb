@@ -30,7 +30,7 @@ class Dodaci(models.Model):
 
     class Meta:
         verbose_name = "Dodatak"
-        verbose_name_plural = "Dodaci"
+        verbose_name_plural = "Dodaci" #kako će mi biti prikazano u adminu tao lijevo lijepo
 
 
 class Napitak(models.Model):

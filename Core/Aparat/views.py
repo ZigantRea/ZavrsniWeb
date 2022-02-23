@@ -50,7 +50,7 @@ class DodajNarudzbu(CreateView):
         '''
         return reverse("stavka", kwargs={"pk": self.pk})
 
-    def get_initial(self):
+    def get_initial(self): #povlaci one podatke grda  ime i to
         '''
         Ako logirani korisnik ima profil automatski popunjujemo adresu, grad i ime
         '''
@@ -107,13 +107,13 @@ class DodajStavku(FormView):
 
         return super(DodajStavku, self).form_valid(form)
 
-    def get_success_url(self):
+    def get_success_url(self): 
         '''
         Nakon sta kreiramo stavku vraca nas ponovno na ovaj view da možemo kreirani novu stavku 
         '''
-        return reverse("stavka", kwargs={"pk": self.pk})
+        return reverse("stavka", kwargs={"pk": self.pk}) #da mi omogućuje ponovno unesti stavku bez da ide na dalje
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs): 
         '''
         Uzimamo sve stavke s narudžbe da vidimo koje stavke smo vec dodali u narudžbu
         '''
@@ -140,7 +140,7 @@ class UrediStavku(UpdateView):
     template_name = "Aparat/stavka_uredi.html"
     fields = ["napitak", "kolicina", "dodatak"]
 
-    def get_success_url(self):
+    def get_success_url(self):#kada stisneš ok da te negdje proslijedi
         '''
         Nakon sto spremimo narudžbu porsljedujemo na potvrud narudzbe
         '''    
@@ -169,7 +169,7 @@ class InfoView(TemplateView):
     template_name = "info.html"
 
 
-@method_decorator(staff_member_required, name="dispatch")
+@method_decorator(staff_member_required, name="dispatch") #samo admin moze pristupiti ovom view
 class DodajNapitak(CreateView):
     '''
     View za dodavanje novog napitka 

@@ -12,7 +12,7 @@ class NapitakAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Napitak, NapitakAdmin)
+admin.site.register(Napitak, NapitakAdmin) #da se prikaže u adminu
 
 
 class StavkaAdminInline(admin.TabularInline):

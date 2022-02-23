@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 class Profil(models.Model):
     '''
-    Proširavamo defaultni user model sa OneToOne modelom
+    Proširujemo defaultni user model sa OneToOne modelom
     Koristimo OneToOne model jer nismo uredili defaultnog usera prije prve migracije
     '''
     user = models.OneToOneField(
